@@ -1,9 +1,23 @@
 {
   "name": "colrz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ansi terminal colors",
   "main": "index.js",
   "author": "yetzt <node@yetzt.me>",
   "license": "MIT",
-  "dependencies": {}
+  "keywords": [
+    "colors",
+    "color",
+    "ansi",
+    "terminal",
+    "console"
+  ],
+  "homepage": "https://github.com/yetzt/node-colrz#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yetzt/node-colrz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yetzt/node-colrz/issues"
+  }
 }
