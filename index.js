@@ -63,7 +63,9 @@ const enabled = (('FORCE_COLOR' in process.env) || (process.argv.includes("--for
 
 // extrend string prototype
 Object.keys(colors).forEach(function(color){
-	String.prototype.__defineGetter__(color, function(){
-		return enabled ? ('\u001b['+colors[color][0]+'m'+this+'\u001b['+colors[color][1]+'m') : this.toString();
+	String.prototype.__defineGetter__(color, enabled ? function(){
+		return ('\u001b['+colors[color][0]+'m'+this+'\u001b['+colors[color][1]+'m');
+	} : function(){
+		return this.toString();
 	});
 });
