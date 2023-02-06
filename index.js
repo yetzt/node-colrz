@@ -11,7 +11,7 @@ const colors = {
 	white:           [37, 39],
 	gray:            [90, 39],
 	grey:            [90, 39],
-	
+
 	brightRed:       [91, 39],
 	brightGreen:     [92, 39],
 	brightYellow:    [93, 39],
@@ -38,7 +38,7 @@ const colors = {
 	bgBrightMagenta: [105, 49],
 	bgBrightCyan:    [106, 49],
 	bgBrightWhite:   [107, 49],
-	
+
 	bold:            [1, 22],
 	dim:             [2, 22],
 	italic:          [3, 23],
@@ -48,7 +48,7 @@ const colors = {
 	strikethrough:   [9, 29],
 	strike:          [9, 29],
 	reset:           [0, 0],
-	
+
 }; // compatible with https://github.com/Marak/colors.js
 
 // check for tty and if terminal supports color
@@ -62,10 +62,10 @@ const enabled = (('FORCE_COLOR' in process.env) || (process.argv.includes("--for
 )));
 
 // extrend string prototype
-Object.keys(colors).forEach(function(color){
-	String.prototype.__defineGetter__(color, enabled ? function(){
-		return ('\u001b['+colors[color][0]+'m'+this+'\u001b['+colors[color][1]+'m');
-	} : function(){
-		return this.toString();
+if (enabled) Object.keys(colors).forEach(function(color){
+	Object.defineProperty(String.prototype, color, {
+		get() {
+			return ('\u001b['+colors[color][0]+'m'+this+'\u001b['+colors[color][1]+'m');
+		},
 	});
 });
