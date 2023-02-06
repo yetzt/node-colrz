@@ -1,6 +1,6 @@
 {
   "name": "colrz",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ansi terminal colors",
   "main": "index.js",
   "author": "yetzt <node@yetzt.me>",
